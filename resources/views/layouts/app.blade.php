@@ -177,6 +177,8 @@
         <a href="/portfolio" class="mobile-nav-link">Portfolio</a>
         <a href="/galerie" class="mobile-nav-link">Galerie</a>
         <a href="/eshop" class="mobile-nav-link">E-shop</a>
+        <a href="/vystavy" class="mobile-nav-link">Výstavy</a>
+        <a href="/napsali-o-mne" class="mobile-nav-link">Napsali o mně</a>
         <a href="/kontakt" class="mobile-nav-link">Kontakt</a>
         <div style="display: flex; gap: 2rem; margin-top: 2rem;">
             <a href="https://instagram.com" target="_blank" style="color: #6b6b6b; transition: color 0.3s;" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='#6b6b6b'">
@@ -226,6 +228,8 @@
                         <li><a href="/portfolio" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">Portfolio</a></li>
                         <li><a href="/galerie" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">Galerie</a></li>
                         <li><a href="/eshop" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">E-shop</a></li>
+                        <li><a href="/vystavy" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">Výstavy</a></li>
+                        <li><a href="/napsali-o-mne" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">Napsali o mně</a></li>
                         <li><a href="/kontakt" style="color: #6b6b6b; font-size: 0.85rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#f5f5f0'" onmouseout="this.style.color='#6b6b6b'">Kontakt</a></li>
                     </ul>
                 </div>

@@ -10,6 +10,8 @@ use App\Http\Controllers\ContactController;
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/vystavy', [HomeController::class, 'exhibitions'])->name('exhibitions');
+Route::get('/napsali-o-mne', [HomeController::class, 'press'])->name('press');
 
 // Portfolio
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');

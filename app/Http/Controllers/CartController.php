@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
     public function index()
     {
         $cart = session('cart', []);
-        $total = array_sum(array_map(fn($item) => $item['price'] * $item['qty'], $cart));
-        $shipping = $total >= 2000 ? 0 : 290;
+        $total = 0;
+        foreach($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        $shipping = ($total > 0 && $total < 2000) ? 290 : 0;
 
         return view('cart.index', compact('cart', 'total', 'shipping'));
     }
@@ -24,51 +27,54 @@ class CartController extends Controller
         ]);
 
         $cart = session('cart', []);
-        $key = Str::slug($request->product_name);
+        $id = Str::slug($request->product_name);
 
-        if (isset($cart[$key])) {
-            $cart[$key]['qty']++;
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
         } else {
-            $cart[$key] = [
-                'name'  => $request->product_name,
+            $cart[$id] = [
+                'name' => $request->product_name,
                 'price' => (float) $request->product_price,
-                'size'  => $request->size ?? '',
-                'img'   => $request->product_img ?? '',
-                'qty'   => 1,
+                'quantity' => 1,
             ];
         }
 
         session(['cart' => $cart]);
 
-        return redirect()->back()->with('success', 'Produkt přidán do košíku.');
+        return redirect()->route('cart.index')->with('success', 'Produkt byl přidán do košíku.');
     }
 
-    public function remove($key)
+    public function remove($id)
     {
         $cart = session('cart', []);
-        unset($cart[$key]);
-        session(['cart' => $cart]);
 
-        return redirect()->route('cart.index')->with('success', 'Produkt odebrán.');
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session(['cart' => $cart]);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Produkt byl odebrán z košíku.');
     }
 
     public function update(Request $request)
     {
-        $cart = session('cart', []);
+        $request->validate([
+            'id' => 'required|string',
+            'quantity' => 'required|integer|min:0',
+        ]);
 
-        foreach ($request->qty as $key => $qty) {
-            if (isset($cart[$key])) {
-                $qty = (int) $qty;
-                if ($qty <= 0) {
-                    unset($cart[$key]);
-                } else {
-                    $cart[$key]['qty'] = $qty;
-                }
+        $cart = session('cart', []);
+        $id = $request->id;
+
+        if (isset($cart[$id])) {
+            if ($request->quantity <= 0) {
+                unset($cart[$id]);
+            } else {
+                $cart[$id]['quantity'] = (int) $request->quantity;
             }
+            session(['cart' => $cart]);
         }
 
-        session(['cart' => $cart]);
-
-        return redirect()->route('cart.index')->with('success', 'Košík aktualizován.');
+        return redirect()->route('cart.index')->with('success', 'Košík byl aktualizován.');
     }
 }

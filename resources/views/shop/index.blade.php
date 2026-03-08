@@ -74,6 +74,7 @@
                                     @csrf
                                     <input type="hidden" name="product_name" value="{{ $product->name }}">
                                     <input type="hidden" name="product_price" value="{{ $product->price }}">
+                                    <input type="hidden" name="product_image" value="{{ $product->image ?? 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=650&fit=crop' }}">
                                     <button type="submit" class="add-to-cart-btn">Přidat do košíku</button>
                                 </form>
                             </div>

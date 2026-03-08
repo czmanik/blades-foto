@@ -24,6 +24,7 @@ class CartController extends Controller
         $request->validate([
             'product_name' => 'required|string',
             'product_price' => 'required|numeric|min:0',
+            'product_image' => 'nullable|string',
         ]);
 
         $cart = session('cart', []);
@@ -35,6 +36,7 @@ class CartController extends Controller
             $cart[$id] = [
                 'name' => $request->product_name,
                 'price' => (float) $request->product_price,
+                'image' => $request->product_image,
                 'quantity' => 1,
             ];
         }

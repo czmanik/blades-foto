@@ -41,10 +41,10 @@
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
 
         <!-- Breadcrumbs -->
-        <nav style="margin-bottom: 3rem; display: flex; gap: 0.75rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">
-            <a href="/eshop" style="color: #6b6b6b;">E-shop</a>
+        <nav style="margin-bottom: 3rem; display: flex; gap: 0.75rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; position: relative;">
+            <a href="{{ route('shop.index') }}" style="color: #6b6b6b;">E-shop</a>
             <span style="color: rgba(201,169,110,0.3);">/</span>
-            <a href="/eshop?kategorie={{ $product->category->slug }}" style="color: #6b6b6b;">{{ $product->category->name }}</a>
+            <a href="{{ route('shop.index', ['kategorie' => $product->category->slug]) }}" style="color: #6b6b6b;">{{ $product->category->name }}</a>
             <span style="color: rgba(201,169,110,0.3);">/</span>
             <span style="color: #c9a96e;">{{ $product->name }}</span>
         </nav>
@@ -72,6 +72,7 @@
                     @csrf
                     <input type="hidden" name="product_name" value="{{ $product->name }}">
                     <input type="hidden" name="product_price" value="{{ $product->price }}">
+                    <input type="hidden" name="product_image" value="{{ $product->image ?? 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1000&q=80' }}">
 
                     <div class="option-group">
                         <span class="option-label">Vyberte rozměr (cm)</span>
@@ -125,7 +126,7 @@
         <div style="margin-top: 10rem;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem;">
                 <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #f5f5f0;">Mohlo by vás zajímat</h2>
-                <a href="/eshop" style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a96e; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.3); padding-bottom: 0.25rem;">Zpět do obchodu</a>
+                <a href="{{ route('shop.index') }}" style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a96e; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.3); padding-bottom: 0.25rem;">Zpět do obchodu</a>
             </div>
             <div class="related-grid">
                 @foreach($related as $r)

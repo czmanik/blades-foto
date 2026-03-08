@@ -35,8 +35,8 @@
             <div>
                 @foreach($cart as $id => $item)
                 <div class="cart-item">
-                    <div style="overflow: hidden; aspect-ratio: 1; background: #111;">
-                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop" alt="{{ $item['name'] }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;">
+                    <div style="overflow: hidden; aspect-ratio: 1; background: #111; border: 1px solid rgba(201,169,110,0.1);">
+                        <img src="{{ $item['image'] ?? 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop' }}" alt="{{ $item['name'] }}" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div>
                         <h3 style="font-family: 'Playfair Display', serif; font-size: 1rem; color: #f5f5f0; margin-bottom: 0.4rem;">{{ $item['name'] }}</h3>
@@ -93,7 +93,7 @@
         @else
         <div style="text-align: center; padding: 8rem 0;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #f5f5f0; margin-bottom: 1rem;">Košík je prázdný</h2>
-            <a href="/eshop" class="btn-primary">Prozkoumat E-shop</a>
+            <a href="{{ route('shop.index') }}" class="btn-primary">Prozkoumat E-shop</a>
         </div>
         @endif
     </div>

@@ -85,7 +85,7 @@
     <div class="max-w-3xl mx-auto px-6 reveal">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem;">Máte zájem o výstavu?</h2>
         <p style="color: #6b6b6b; margin-bottom: 3rem; line-height: 1.8;">Pokud reprezentujete galerii nebo kulturní instituci a máte zájem o spolupráci na výstavním projektu, neváhejte mě kontaktovat.</p>
-        <a href="/kontakt" class="btn-primary">Napsat mi</a>
+        <a href="{{ route('contact.index') }}" class="btn-primary">Napsat mi</a>
     </div>
 </section>
 

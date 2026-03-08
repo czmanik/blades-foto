@@ -91,11 +91,11 @@
 
             <!-- CTA Buttons -->
             <div style="display: flex; flex-wrap: wrap; gap: 1rem; opacity: 0; animation: fadeIn 0.8s 1.3s forwards;">
-                <a href="/portfolio" class="btn-primary">
+                <a href="{{ route('portfolio.index') }}" class="btn-primary">
                     <span>Zobrazit Portfolio</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </a>
-                <a href="/kontakt" class="btn-outline">Spolupráce</a>
+                <a href="{{ route('contact.index') }}" class="btn-outline">Spolupráce</a>
             </div>
         </div>
 
@@ -187,7 +187,7 @@
                     </div>
                 </div>
 
-                <a href="/portfolio" class="btn-primary">Prozkoumat Portfolio</a>
+                <a href="{{ route('portfolio.index') }}" class="btn-primary">Prozkoumat Portfolio</a>
             </div>
         </div>
     </div>
@@ -207,7 +207,7 @@
                     Fotoprojekty<br><em style="color: #c9a96e; font-style: italic;">& série</em>
                 </h2>
             </div>
-            <a href="/portfolio" style="color: #c9a96e; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid rgba(201,169,110,0.3); padding-bottom: 0.25rem; transition: gap 0.3s;" onmouseover="this.style.gap='1.25rem'" onmouseout="this.style.gap='0.75rem'">
+            <a href="{{ route('portfolio.index') }}" style="color: #c9a96e; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid rgba(201,169,110,0.3); padding-bottom: 0.25rem; transition: gap 0.3s;" onmouseover="this.style.gap='1.25rem'" onmouseout="this.style.gap='0.75rem'">
                 Všechny projekty
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
@@ -288,7 +288,7 @@
                 <p style="color: #6b6b6b; font-size: 0.95rem; line-height: 1.9; margin-bottom: 3rem;">
                     Každá spolupráce je jiná, ale vždy vychází z důkladné přípravy a vzájemného porozumění. Cílem je zachytit to, co je na člověku jedinečné.
                 </p>
-                <a href="/kontakt" class="btn-outline">Začít spolupráci</a>
+                <a href="{{ route('contact.index') }}" class="btn-outline">Začít spolupráci</a>
             </div>
 
             <!-- Right: Steps -->
@@ -351,7 +351,7 @@
                     <div style="position: absolute; top: 1rem; left: 1rem; background: rgba(201,169,110,0.9); color: #0a0a0a; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem;">{{ $item['tag'] }}</div>
                     <!-- Quick add -->
                     <div style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; opacity: 0; transform: translateY(10px); transition: all 0.3s;" class="shop-quick-add">
-                        <a href="/eshop" style="display: block; text-align: center; background: rgba(201,169,110,0.95); color: #0a0a0a; padding: 0.7rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Do košíku</a>
+                        <a href="{{ route('shop.index') }}" style="display: block; text-align: center; background: rgba(201,169,110,0.95); color: #0a0a0a; padding: 0.7rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Do košíku</a>
                     </div>
                 </div>
                 <div style="padding: 1.25rem 0;">
@@ -367,7 +367,7 @@
         </div>
 
         <div class="reveal" style="text-align: center; margin-top: 4rem;">
-            <a href="/eshop" class="btn-primary">Prozkoumat E-shop</a>
+            <a href="{{ route('shop.index') }}" class="btn-primary">Prozkoumat E-shop</a>
         </div>
     </div>
 </section>
@@ -425,7 +425,7 @@
         </h2>
         <p style="color: rgba(245,245,240,0.6); font-size: 1rem; line-height: 1.8; margin-bottom: 3rem;">Rád se s vámi setkám a promluvíme o vašem projektu. Každý příběh si zaslouží být zaznamenán.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-            <a href="/kontakt" class="btn-primary">Kontaktovat mě</a>
+            <a href="{{ route('contact.index') }}" class="btn-primary">Kontaktovat mě</a>
             <a href="tel:+420123456789" class="btn-outline">+420 123 456 789</a>
         </div>
     </div>

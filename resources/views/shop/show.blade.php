@@ -76,16 +76,17 @@
 
                     <div class="option-group">
                         <span class="option-label">Vyberte rozměr (cm)</span>
+                        <input type="hidden" name="size" id="selected-size" value="30x45">
                         <div class="size-grid">
-                            <div class="size-option active">
+                            <div class="size-option active" onclick="selectSize('30x45', this)">
                                 <span class="size-name">30 × 45</span>
                                 <span class="size-desc">Klasický formát</span>
                             </div>
-                            <div class="size-option">
+                            <div class="size-option" onclick="selectSize('40x60', this)">
                                 <span class="size-name">40 × 60</span>
                                 <span class="size-desc">Populární volba</span>
                             </div>
-                            <div class="size-option">
+                            <div class="size-option" onclick="selectSize('60x90', this)">
                                 <span class="size-name">60 × 90</span>
                                 <span class="size-desc">Velkoformát</span>
                             </div>
@@ -94,11 +95,11 @@
 
                     <div class="option-group">
                         <span class="option-label">Provedení</span>
-                        <select style="width: 100%; padding: 1rem; background: #111; border: 1px solid rgba(201,169,110,0.2); color: #f5f5f0; outline: none;">
-                            <option>Fine Art papír (310g)</option>
-                            <option>Hliníková deska (Dibond)</option>
-                            <option>Plátno na rámu</option>
-                            <option>Akrylové sklo</option>
+                        <select name="material" style="width: 100%; padding: 1rem; background: #111; border: 1px solid rgba(201,169,110,0.2); color: #f5f5f0; outline: none;">
+                            <option value="Fine Art papír (310g)">Fine Art papír (310g)</option>
+                            <option value="Hliníková deska (Dibond)">Hliníková deska (Dibond)</option>
+                            <option value="Plátno na rámu">Plátno na rámu</option>
+                            <option value="Akrylové sklo">Akrylové sklo</option>
                         </select>
                     </div>
 

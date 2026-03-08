@@ -25,19 +25,30 @@ class CartController extends Controller
             'product_name' => 'required|string',
             'product_price' => 'required|numeric|min:0',
             'product_image' => 'nullable|string',
+            'size' => 'nullable|string',
+            'material' => 'nullable|string',
         ]);
 
         $cart = session('cart', []);
-        $id = Str::slug($request->product_name);
+        $id = Str::slug($request->product_name . '-' . $request->size . '-' . $request->material);
 
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
+            $name = $request->product_name;
+            if ($request->size || $request->material) {
+                $name .= ' (' . $request->size . ', ' . $request->material . ')';
+            }
+
             $cart[$id] = [
-                'name' => $request->product_name,
+                'name' => $name,
                 'price' => (float) $request->product_price,
                 'image' => $request->product_image,
                 'quantity' => 1,
+                'options' => [
+                    'size' => $request->size,
+                    'material' => $request->material,
+                ]
             ];
         }
 

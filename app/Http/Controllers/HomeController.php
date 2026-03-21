@@ -19,4 +19,14 @@ class HomeController extends Controller
 
         return view('welcome', compact('featuredPhotos', 'featuredProducts'));
     }
+
+    public function exhibitions()
+    {
+        return view('exhibitions');
+    }
+
+    public function press()
+    {
+        return view('press');
+    }
 }

@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('url');
+            $table->string('location')->nullable();
             $table->enum('type', ['portfolio', 'gallery'])->default('portfolio');
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->boolean('featured')->default(false);
